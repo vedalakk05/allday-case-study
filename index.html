@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veda Lakkamraju — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink: #CBD2DA;
+    --pink-pop: #3E5872;
+    --ink: #0E0E10;
+    --paper: #FFFFFF;
+    --gray: #6B6B70;
+    --line: rgba(14,14,16,0.13);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .display{
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  /* ---- nav ---- */
+  nav.top{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--pink);
+    padding: 22px 0;
+  }
+  nav.top .wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand{
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .navlinks{
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    font-size: 13px;
+  }
+  .navlinks a{
+    text-decoration: none;
+    color: var(--ink);
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+  }
+  .navlinks a:hover{ border-color: var(--ink); }
+  .navlinks .dot{
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--pink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-decoration: none;
+  }
+
+  /* ---- hero ---- */
+  .hero{
+    background: var(--pink);
+    padding: 64px 0 88px;
+  }
+  .hero h1{
+    font-size: clamp(48px, 8.5vw, 96px);
+    line-height: 0.96;
+    margin: 0 0 28px;
+  }
+  .hero-sub{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-tag{
+    font-size: 17px;
+    line-height: 1.55;
+    max-width: 420px;
+    margin: 0;
+  }
+  .pill{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 13px 24px;
+    border-radius: 100px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .pill:hover{ background: var(--ink); color: var(--pink); }
+  .pill.solid{
+    background: var(--ink);
+    color: var(--pink);
+  }
+  .pill.solid:hover{ background: #2a2a2e; color: var(--pink); }
+
+  .strapline{
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .strapline p{
+    margin: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.01em;
+  }
+
+  /* ---- proof statement ---- */
+  .proof{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 100px 0;
+    text-align: center;
+  }
+  .proof .lead{
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.6vw, 28px);
+    color: var(--pink);
+    margin: 0 0 6px;
+  }
+  .proof .big{
+    font-size: clamp(52px, 11vw, 132px);
+    line-height: 0.94;
+    margin: 0;
+  }
+
+  /* ---- the work ---- */
+  .work{
+    padding: 96px 0 40px;
+  }
+  .work h2{
+    font-size: clamp(44px, 7vw, 76px);
+    line-height: 0.94;
+    margin: 0 0 28px;
+  }
+  .work-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 52px;
+  }
+  .work-intro{
+    font-size: 16px;
+    color: var(--gray);
+    max-width: 460px;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .stat-row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin: 0 0 56px;
+  }
+  .stat{
+    background: var(--paper);
+    padding: 26px 22px;
+  }
+  .stat .num{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 27px;
+    font-weight: 500;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat .num.worst{ color: var(--pink-pop); }
+  .stat .lbl{
+    font-size: 12.5px;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 60px;
+  }
+  .card img{
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+  .card .card-title{
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0 0 6px;
+  }
+  .card .card-body{
+    font-size: 13.5px;
+    color: var(--gray);
+    line-height: 1.55;
+    margin: 0 0 12px;
+  }
+  .card .card-link{
+    font-size: 12.5px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .narrative{
+    max-width: 680px;
+    margin: 0 0 44px;
+  }
+  .narrative p{
+    font-size: 16.5px;
+    line-height: 1.75;
+  }
+  .narrative p + p{ margin-top: 16px; }
+
+  .tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 40px;
+  }
+  .tag{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    background: var(--pink);
+    padding: 7px 14px;
+    border-radius: 100px;
+  }
+
+  .cta-row{
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  /* ---- approach ---- */
+  .approach{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 90px 0 70px;
+  }
+  .approach h2{
+    color: var(--pink);
+    font-size: clamp(44px, 7vw, 76px);
+    line-height: 0.94;
+    margin: 0 0 20px;
+  }
+  .approach-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+  .approach-sub{
+    font-size: 15.5px;
+    color: #B8B8BE;
+    max-width: 380px;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .approach .pill{
+    border-color: var(--pink);
+    color: var(--pink);
+  }
+  .approach .pill:hover{ background: var(--pink); color: var(--ink); }
+
+  .accordion-item{
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+  }
+  .accordion-item:last-child{ border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .accordion-item .label{ font-size: 16px; }
+  .accordion-item .plus{
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--pink);
+    font-size: 15px;
+  }
+
+  /* ---- footer ---- */
+  footer{
+    padding: 70px 0 60px;
+  }
+  footer .display{
+    font-size: clamp(36px, 5.5vw, 56px);
+    line-height: 1.02;
+    margin: 0 0 26px;
+  }
+  .foot-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .foot-links{
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+  }
+  .foot-links a{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .foot-note{
+    margin-top: 50px;
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  @media (max-width: 720px){
+    .cards{ grid-template-columns: 1fr; }
+    .stat-row{ grid-template-columns: 1fr; }
+    .navlinks{ gap: 14px; }
+    .navlinks span.dotlabel{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <div class="brand">Veda Lakkamraju</div>
+    <div class="navlinks">
+      <a href="#work">work</a>
+      <a href="#approach">approach</a>
+      <a href="#contact">contact</a>
+      <a class="dot" href="mailto:vedalakk05@gmail.com" title="Email">@</a>
+      <a class="dot" href="https://www.linkedin.com/in/vedalakkamraju" target="_blank" rel="noopener" title="LinkedIn">in</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="display">Consistency<br>over capacity.</h1>
+    <div class="hero-sub">
+      <p class="hero-tag">Economics + Business student who diagnoses why operations break — and fixes the process, not the headcount.</p>
+      <a class="pill solid" href="#work">See the case study →</a>
+    </div>
+  </div>
+</header>
+
+<div class="strapline">
+  <div class="wrap">
+    <p>Operations. Root-cause analysis. Data storytelling. Frontline research, too.</p>
+  </div>
+</div>
+
+<section class="proof">
+  <div class="wrap">
+    <p class="lead">(built from) 7+ months on the floor</p>
+    <p class="display big">PROOF.</p>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="work-head">
+      <h2 class="display">The<br>Work.</h2>
+      <p class="work-intro">One shop, two very different nights. Here's how I found the actual variable behind it.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num">300+</span>
+        <span class="lbl">orders on a peak weekend day</span>
+      </div>
+      <div class="stat">
+        <span class="num">12–13 min</span>
+        <span class="lbl">slice wait, best-run shifts</span>
+      </div>
+      <div class="stat">
+        <span class="num worst">25–30 min</span>
+        <span class="lbl">slice wait, worst-run shifts</span>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <img src="thumb-diagnosis.jpg" alt="Situation slide from the case study">
+        <p class="card-title">The Situation</p>
+        <p class="card-body">A small, high-volume shop running on a buzzer system — 300+ orders on a peak day, no space to pre-make.</p>
+        <a class="card-link" href="./Allday_Consistency_CaseStudy.pdf" target="_blank" rel="noopener">See more →</a>
+      </div>
+      <div class="card">
+        <img src="thumb-data.jpg" alt="Problem statement slide with wait time comparison">
+        <p class="card-title">The Data</p>
+        <p class="card-body">Same space, same menu, same ovens — but wait times swing by more than 2x shift to shift.</p>
+        <a class="card-link" href="./Allday_Consistency_CaseStudy.pdf" target="_blank" rel="noopener">Case study →</a>
+      </div>
+      <div class="card">
+        <img src="thumb-fix.jpg" alt="Key takeaway slide from the case study">
+        <p class="card-title">The Fix</p>
+        <p class="card-body">Turn the best shift's playbook into every shift's standard — documented roles, not luck.</p>
+        <a class="card-link" href="./tool.html">Try the prototype →</a>
+      </div>
+    </div>
+
+    <div class="narrative">
+      <p>Working the floor at Allday Pizza for 7+ months, I noticed wait times swing wildly between shifts that looked identical on paper — same volume, same staff pool, same equipment. Using POS order data across dozens of shifts, I isolated the real driver: informal station assignment. On good shifts, one person happened to own cleanup and register stayed focused on orders. On bad shifts, that division of labor fell apart by chance.</p>
+      <p>The fix isn't more space or more staff — it's turning the best shift's playbook into every shift's standard: documented roles, a posted station chart, and cross-training so the good outcome stops depending on who happens to be on shift.</p>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Root-cause analysis</span>
+      <span class="tag">Hypothesis-driven problem solving</span>
+      <span class="tag">Operational diagnostics</span>
+      <span class="tag">Process design</span>
+      <span class="tag">Prototyping</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="pill solid" href="./Allday_Consistency_CaseStudy.pdf" target="_blank" rel="noopener">View full case study (PDF)</a>
+      <a class="pill" href="./Allday_Consistency_CaseStudy.pptx" target="_blank" rel="noopener">Download deck (.pptx)</a>
+      <a class="pill solid" href="./tool.html">Try the prototype →</a>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="approach-head">
+      <h2 class="display">The<br>Approach.</h2>
+      <p class="approach-sub">How I look at a business problem before I ever propose a fix.</p>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item"><span class="label">Data before assumptions.</span><span class="plus">+</span></div>
+      <div class="accordion-item"><span class="label">Root cause, not symptoms.</span><span class="plus">+</span></div>
+      <div class="accordion-item"><span class="label">Low-cost, high-leverage fixes.</span><span class="plus">+</span></div>
+      <div class="accordion-item"><span class="label">Built from the floor up.</span><span class="plus">+</span></div>
+      <div class="accordion-item"><span class="label">Documented, not just diagnosed.</span><span class="plus">+</span></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-links">
+        <a href="mailto:vedalakk05@gmail.com">vedalakk05@gmail.com</a>
+        <a href="https://www.linkedin.com/in/vedalakkamraju" target="_blank" rel="noopener">linkedin.com/in/vedalakkamraju</a>
+        <a href="./resume.pdf" target="_blank" rel="noopener">resume (PDF)</a>
+      </div>
+      <a class="pill" href="mailto:vedalakk05@gmail.com">Get in touch →</a>
+    </div>
+    <p class="foot-note">More case studies in progress.</p>
+  </div>
+</footer>
+
+</body>
+</html>
